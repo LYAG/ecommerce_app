@@ -1,0 +1,18 @@
+<h1>Products</h1>
+
+<% if user_signed_in? %>
+  <%= link_to 'New Product', new_product_path, class: 'btn btn-primary' %>
+<% else %>
+  <%= link_to 'Sign Up or Log In', login_path, class: 'btn btn-primary' %>
+<% end %>
+
+<ul>
+  <% @products.each do |product| %>
+    <li>
+      <%= link_to product.name, product %>
+      <p><%= product.description %></p>
+      <p><%= product.price %> USD</p>
+      <p>Stock: <%= product.stock %></p>
+    </li>
+  <% end %>
+</ul>
